@@ -1,0 +1,10 @@
+<div class="ngx-dorpdown-container">
+    <input #_inputId id="#_inputId" name="search" (keyup)="keyevent(_inputId.value, $event)" (focus)="toggleSelectDropdown($event)" [(ngModel)]="searchtxt" />
+    <div class="ngx-dropdown-list-container" *ngIf="toggleList" [style.maxHeight]="config.height">
+        <ul class="available-items">
+            <li #availOption *ngFor="let item of availItems| filter: searchtxt | limitto : config.limitTo; let i = index" tabindex="-1" [ngClass]="{'active': focusedItemIndex == i}" (click)="selectItem(item, i)">
+                {{item[config.displayKey] || item}}</li>
+        </ul>
+    </div>
+</div>
+
