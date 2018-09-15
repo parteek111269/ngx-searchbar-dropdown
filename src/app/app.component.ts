@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-}
+	// @Input() options: any;
+	// @Input() multiple: any;
+	public config: any;
+	public option: any;
+	public dataModel: any;
+	constructor(){
+		this.config = {
+            displayKey: 'name',
+            search: true //enables the search plugin to search in the list
+        }
+        setTimeout(()=>{
+            this.option = [{'name': 'parteek'}, {'name': 'uims'}, {'name': 'searchbar'}];
+        },3500)
+	}
+	changeValue($event: any) {
+        console.log($event);
+    }
+    keyWord(e){
+    	console.log(e);
+    }
+}	

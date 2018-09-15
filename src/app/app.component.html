@@ -1,2 +1,2 @@
-<app-searchbar></app-searchbar>
+<app-searchbar [config]="config" [inputItems]="option" [(value)]="dataModel" [ismultiple]="false" (change)="changeValue($event)" (keyWord)="keyWord($event)"></app-searchbar>
 

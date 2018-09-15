@@ -7,7 +7,7 @@ import { Component, OnInit, Input, EventEmitter, Output, HostListener, OnChanges
 })
 export class SearchbarComponent implements OnInit, OnChanges {
 	// Get the required inputs  options = inputItems
-	@Input() public inputItems: any = [{'name': 'parteek'}, {'name': 'uims'}, {'name': 'searchbar'}];
+	@Input() public inputItems: any;
 
 	// configuration options
 	@Input() public config: any = {};
@@ -56,6 +56,7 @@ export class SearchbarComponent implements OnInit, OnChanges {
 	ngOnInit() {
         console.log(this.inputItems)
 		if (typeof this.inputItems !== "undefined" && Array.isArray(this.inputItems)) {
+            console.log(this.inputItems);
     		this.availItems = [...this.inputItems.sort(this.config.customComparator)];
       		this.initDropdownValuesAndOptions();
     	}
@@ -91,7 +92,7 @@ export class SearchbarComponent implements OnInit, OnChanges {
     // Event handler for key up and down event and enter press for selecting item
 	@HostListener('document:keydown', ['$event'])
 	public handleKeyboardEvent($event: KeyboardEvent) {
-		const avaOpts = this.availOptions.toArray();
+		const avaOpts: any = this.availOptions.toArray();
 		if ($event.code === 'ArrowDown' && avaOpts.length > 0) {
     		this.onArrowKeyDown(avaOpts);
     		avaOpts[this.focusedItemIndex].nativeElement.focus();
