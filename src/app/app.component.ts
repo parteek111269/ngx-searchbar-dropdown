@@ -16,9 +16,7 @@ export class AppComponent {
             displayKey: 'name',
             search: true //enables the search plugin to search in the list
         }
-        setTimeout(()=>{
-            this.option = [{'name': 'parteek'}, {'name': 'uims'}, {'name': 'searchbar'}];
-        },3500)
+        this.option = [{'name': 'parteek'}, {'name': 'uims'}, {'name': 'searchbar'}];
 	}
 	changeValue($event: any) {
         console.log($event);
